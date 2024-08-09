@@ -84,10 +84,10 @@ export default function Addnote({ showAlert, setShowModal }) {
         </div>
 
         <div className="row">
-          <div className="col-md-1">
+          <div className="col-6 col-md-1">
             {!localStorage.getItem("token") ? (
               <button
-                className="btn-3d"
+                className="btn-3d w-100"
                 onClick={(event) => {
                   event.preventDefault();
                   setShowModal(true);
@@ -96,13 +96,13 @@ export default function Addnote({ showAlert, setShowModal }) {
                 <span>Save</span>
               </button>
             ) : (
-              <button className="btn-3d" onClick={handleClick}>
+              <button className="btn-3d w-100" onClick={handleClick}>
                 <span>Save</span>
               </button>
             )}
           </div>
-          <div className="col-md-1 mx-4">
-            <button className="btn-3d" type="reset">
+          <div className="col-6 col-md-1">
+            <button className="btn-3d w-100" type="reset">
               <span>Clear</span>
             </button>
           </div>
