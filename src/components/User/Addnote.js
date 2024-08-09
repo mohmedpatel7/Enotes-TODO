@@ -83,16 +83,16 @@ export default function Addnote({ showAlert, setShowModal }) {
           ></textarea>
         </div>
 
-        <div className="row">
-          <div className="col-6 col-md-1">
+        <div className="row justify-content-center">
+          <div className="col-12 col-md-2">
             <button className="btn-3d w-100" type="reset">
               <span>Clear</span>
             </button>
           </div>
-          <div className="col-6 col-md-1">
+          <div className="col-12 col-md-2">
             {!localStorage.getItem("token") ? (
               <button
-                className="btn-3d w-100"
+                className="btn-3d w-100 mb-2 mb-md-0"
                 onClick={(event) => {
                   event.preventDefault();
                   setShowModal(true);
@@ -101,7 +101,10 @@ export default function Addnote({ showAlert, setShowModal }) {
                 <span>Save</span>
               </button>
             ) : (
-              <button className="btn-3d w-100" onClick={handleClick}>
+              <button
+                className="btn-3d w-100 mb-2 mb-md-0"
+                onClick={handleClick}
+              >
                 <span>Save</span>
               </button>
             )}

@@ -317,7 +317,6 @@ i {
   transition: all 0.2s ease-in-out;
   color: #fff;
   margin-bottom: 10px;
-  max-width: 90px;
 }
 
 .btn-3d:hover,
