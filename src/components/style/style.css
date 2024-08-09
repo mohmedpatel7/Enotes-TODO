@@ -1,0 +1,729 @@
+/* Custom CSS for the transparent navbar */
+/* Ensure the navbar is fixed to the top */
+.navbar {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 1001;
+  height: 100px;
+  /* Ensure it's above other content but below the alert */
+}
+
+/* Custom styling for the navbar */
+.navbar-custom {
+  background-color: #eee;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem; */
+  /* Decrease padding to reduce height */
+  margin-bottom: 0;
+  /* Remove bottom margin if present */
+}
+
+/* Styling for the brand */
+.navbar-custom .navbar-brand {
+  color: #1B1212;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0;
+  /* Ensure no extra margin below brand */
+}
+
+/* Adjust navbar links */
+.navbar-custom .navbar-nav {
+  justify-content: flex-end;
+}
+
+.navbar-custom .nav-link {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s, font-weight 0.3s;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  /* Adjust padding to control height */
+}
+
+.navbar-custom .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  /* Adjust this value to set the distance between the text and underline */
+  left: 0;
+  background-color: #3B8386;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #3B8386;
+  transform: translateY(-2px);
+  /* Adjust vertical movement on hover */
+  font-weight: bold;
+}
+
+.navbar-custom .nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Adjust styling for the toggler icon */
+.navbar-custom .navbar-toggler-icon {
+  filter: invert(100%) brightness(100%);
+}
+
+/* Custom button styles for login and sign up */
+#btn-login,
+#btn-signup {
+  background-color: #4BA4A6;
+  /* Theme color */
+  color: white;
+  border: none;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+#btn-login:hover,
+#btn-signup:hover {
+  background-color: #3B8386;
+  /* Darker shade of the theme color on hover */
+  color: white;
+}
+
+/* Adjust margin for the last button */
+.navbar .btn-signup {
+  margin-right: 0;
+}
+
+
+
+/* Home.css */
+
+/* General styles */
+.home-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 20px;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  background-color: #4BA4A6;
+  /* Vibrant orange */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+  justify-content: center;
+}
+
+.hero .btn:hover {
+  background-color: #4BA4A6;
+  /* Darker orange on hover */
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Features section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.feature {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  /* Smooth transition */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.feature:hover {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  /* Lift the element */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.feature-icon {
+  font-size: 48px;
+  color: #4BA4A6;
+  margin-bottom: 10px;
+}
+
+.feature h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 16px;
+}
+
+
+/* Global Styles */
+body {
+  padding-top: 70px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+}
+
+/* Container */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Row */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+/* Column */
+.col-md-6 {
+  flex: 0 0 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Card */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Card Header */
+.card-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+/* Button */
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/* Input */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-control-description {
+  width: 100%;
+  height: 2in;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+
+  /* Adjust styles for smaller screens */
+  .container {
+    padding: 10px;
+  }
+
+  .col-md-6 {
+    flex: 0 0 100%;
+  }
+
+  /* ... other responsive styles ... */
+}
+
+i {
+  cursor: pointer;
+}
+
+.btn-3d,
+.modal-btn {
+  background-color: #4BA4A6;
+  /* Vibrant orange */
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  transition: all 0.2s ease-in-out;
+  color: #fff;
+  /* White text */
+}
+
+.btn-3d:hover,
+.modal-btn:hover {
+  background-color: #4BA4A6;
+  /* Darker orange on hover */
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.modal.show {
+  -webkit-transition: opacity 0.4s ease-out;
+  transition: opacity 0.4s ease-out;
+}
+
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -50px);
+  transform: translate(0, -50px);
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+}
+
+.modal.fade.show .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+.modal {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Modal.css */
+.custom-modal-header .btn-close {
+  background-color: transparent;
+  /* Remove default background */
+  border: none;
+  /* Remove border */
+  color: #4BA4A6;
+  /* Set custom color */
+  font-size: 1.5rem;
+  /* Increase size if needed */
+}
+
+.custom-modal-header .btn-close:hover {
+  color: #0056b3;
+  /* Darker color on hover */
+}
+
+.custom-modal-header .btn-close:focus {
+  box-shadow: none;
+  /* Remove focus shadow */
+}
+
+.modal-btn {
+  margin-left: 10px;
+  /* Space between buttons */
+}
+
+
+.footer {
+  background-color: #212529;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
+
+/* About.css */
+
+/* General styles */
+.about-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 20px;
+}
+
+/* About section */
+.about-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.about-content {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.about-content p {
+  margin-bottom: 15px;
+}
+
+/* Team section */
+.team {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-member {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.team-member:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.team-member img {
+  border-radius: 50%;
+  margin-bottom: 15px;
+  width: 100px;
+  height: 100px;
+}
+
+.team-member h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.team-member p {
+  font-size: 16px;
+}
+
+/* Footer.css */
+
+.footer {
+  background-color: #212529;
+  /* Dark background */
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer h2 {
+  margin-bottom: 20px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer .social-links li {
+  display: inline;
+}
+
+.footer .social-links a {
+  color: white;
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.footer .social-links a:hover {
+  color: #ffc107;
+  /* Highlight color on hover */
+}
+
+.footer p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.profile-btn {
+  background-color: #4BA4A6;
+  /* Theme color */
+  color: white;
+  border: none;
+  margin-right: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.profile-btn:hover {
+  background-color: #3B8386;
+  /* Darker shade of the theme color on hover */
+  color: white;
+}
+
+.btn-profile {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  background: transparent;
+  /* Remove button background */
+  border: none;
+  /* Remove button border */
+  cursor: pointer;
+  /* Add cursor pointer for better UX */
+}
+
+.btn-profile i,
+.btn-profile svg {
+  margin-right: 8px;
+  /* Space between icon and text */
+  font-size: 28px;
+}
+
+/* Style for the modal container */
+.modal-dialog {
+  max-width: 500px;
+  /* Set a maximum width for the modal */
+}
+
+/* Style for the modal header */
+.modal-header {
+  background-color: #f8f9fa;
+  /* Light background color */
+  border-bottom: 1px solid #dee2e6;
+  /* Border at the bottom */
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  /* Larger font size for the title */
+  font-weight: 600;
+  /* Bold title */
+}
+
+/* Style for the modal body */
+.modal-body {
+  padding: 20px;
+  /* Add padding inside the modal body */
+  font-size: 1rem;
+  /* Default font size for body text */
+  color: #333;
+  /* Dark text color */
+}
+
+/* Style for the modal footer */
+.modal-footer {
+  background-color: #f8f9fa;
+  /* Light background color */
+  border-top: 1px solid #dee2e6;
+  /* Border at the top */
+}
+
+/* Style for buttons in the footer */
+.modal-footer .btn {
+  font-size: 1rem;
+  /* Button text size */
+}
+
+/* Alert.css */
+.alert-container {
+  position: fixed;
+  top: 70px;
+  /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  /* Adjust based on your design */
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInOut 3s ease-out;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* admin dashboard/table css */
+
+.table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: separate;
+  border-spacing: 0 15px;
+  background-color: #ffffff;
+  /* Background color for the table */
+  border-radius: 10px;
+  /* Rounded corners for the table */
+  overflow: hidden;
+  /* Ensures rounded corners are visible */
+}
+
+.table thead th {
+  background-color: #4BA4A6;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  border: none;
+}
+
+.table tbody tr {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.table tbody tr:hover {
+  transform: scale(1.02);
+}
+
+.table tbody td {
+  padding: 10px;
+  border-top: none;
+}
+
+.table tbody tr td:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.table tbody tr td:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f2f2f2;
+}
+
+input[name="password"],
+input[name="cpassword"] {
+  height: 50px;
+}
+
+.animated-text {
+  font-size: 24px;
+  font-weight: bold;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
