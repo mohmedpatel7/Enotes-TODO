@@ -85,6 +85,11 @@ export default function Addnote({ showAlert, setShowModal }) {
 
         <div className="row">
           <div className="col-6 col-md-1">
+            <button className="btn-3d w-100" type="reset">
+              <span>Clear</span>
+            </button>
+          </div>
+          <div className="col-6 col-md-1">
             {!localStorage.getItem("token") ? (
               <button
                 className="btn-3d w-100"
@@ -100,11 +105,6 @@ export default function Addnote({ showAlert, setShowModal }) {
                 <span>Save</span>
               </button>
             )}
-          </div>
-          <div className="col-6 col-md-1">
-            <button className="btn-3d w-100" type="reset">
-              <span>Clear</span>
-            </button>
           </div>
         </div>
       </form>
