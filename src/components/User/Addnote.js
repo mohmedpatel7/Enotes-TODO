@@ -25,6 +25,10 @@ export default function Addnote({ showAlert, setShowModal }) {
     showAlert("Saved.", "success");
   };
 
+  const handleReset = () => {
+    setNote({ title: "", description: "", tag: "" });
+  };
+
   // ... rest of your component code
 
   return (
@@ -85,7 +89,11 @@ export default function Addnote({ showAlert, setShowModal }) {
 
         <div className="row justify-content-center">
           <div className="col-12 col-md-2">
-            <button className="btn-3d w-100" type="reset">
+            <button
+              className="btn-3d w-100"
+              type="button"
+              onClick={handleReset}
+            >
               <span>Clear</span>
             </button>
           </div>
