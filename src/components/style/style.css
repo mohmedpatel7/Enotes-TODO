@@ -316,7 +316,7 @@ i {
   padding: 12px 24px;
   transition: all 0.2s ease-in-out;
   color: #fff;
-  /* White text */
+  margin-bottom: 10px;
 }
 
 .btn-3d:hover,
