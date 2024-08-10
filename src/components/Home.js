@@ -5,7 +5,7 @@ import "./style/style.css";
 const Home = ({ setshowGetst }) => {
   return (
     <div>
-      <div className="home-container " style={{ paddingTop: "85px" }}>
+      <div className="home-container " style={{ paddingTop: "82px" }}>
         <header className="hero">
           <h1 className="hero-title">Welcome to ENOTES</h1>
           <p className="hero-subtitle">Your personal note management app</p>

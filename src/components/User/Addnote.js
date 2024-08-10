@@ -32,14 +32,14 @@ export default function Addnote({ showAlert, setShowModal }) {
   // ... rest of your component code
 
   return (
-    <div className="conatiner ">
-      <div className="row" style={{ paddingTop: "85px" }}>
+    <div className="conatiner " style={{ paddingTop: "120px" }}>
+      <div className="row">
         <h2 className="animated-text">Add Notes...</h2>
       </div>
 
       {/*Add notes form */}
       <form>
-        <div className=" my-3">
+        <div className=" ">
           <label className="form-label">Title</label>
           <input
             type="text"

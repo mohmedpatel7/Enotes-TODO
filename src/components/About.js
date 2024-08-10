@@ -3,7 +3,7 @@ import "./style/style.css";
 
 const About = () => {
   return (
-    <div className="about-container" style={{ "paddingTop": "85px" }}>
+    <div className="about-container" style={{ paddingTop: "100px" }}>
       <section className="about-section">
         <h1 className="about-title">ABOUT ENOTES</h1>
         <div className="about-content">
