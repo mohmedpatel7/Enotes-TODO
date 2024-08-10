@@ -19,7 +19,7 @@ export default function Navbar({
       <div className="container-fluid">
         <p className="navbar-brand">eNotes</p>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler custom-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"

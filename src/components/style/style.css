@@ -73,7 +73,10 @@
 /* Adjust styling for the toggler icon */
 .navbar-custom .navbar-toggler-icon {
   filter: invert(100%) brightness(100%);
-  color: #1B1212;
+}
+
+.custom-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Custom button styles for login and sign up */
