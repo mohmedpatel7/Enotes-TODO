@@ -14,6 +14,7 @@ import Profile from "./components/User/Profile";
 import Adminlogin from "./components/Admin/Adminlogin";
 import Adminprofile from "./components/Admin/Adminprofile";
 import Dashboard from "./components/Admin/Dashboard";
+import Getstatrt from "./components/Getstatrt";
 
 function App() {
   const [showModal, setShowModal] = useState(false); //login
@@ -22,6 +23,7 @@ function App() {
   const [showadminModal, setadminShowModal] = useState(false); //admin
   const [showAdminProfile, setshowAdminProfile] = useState(false);
   const [alert, setAlert] = useState(null); //alert
+  const [showGetst, setshowGetst] = useState(false);
 
   const showAlert = (message, type) => {
     setAlert({
@@ -52,7 +54,7 @@ function App() {
               <Route
                 exact
                 path="/"
-                element={<Home setShowModal={setShowModal} />}
+                element={<Home setshowGetst={setshowGetst} />}
               />
               <Route
                 exact
@@ -100,6 +102,12 @@ function App() {
             showAdminProfile={showAdminProfile}
             setshowAdminProfile={setshowAdminProfile}
             showAlert={showAlert}
+          />
+          <Getstatrt
+            showGetst={showGetst}
+            setshowGetst={setshowGetst}
+            setShowModal={setShowModal}
+            setShowSignupModal={setShowSignupModal}
           />
           <Footer />
         </Router>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style/style.css";
 
-const Home = ({ setShowModal }) => {
+const Home = ({ setshowGetst }) => {
   return (
     <div>
       <div className="home-container " style={{ paddingTop: "75px" }}>
@@ -14,19 +14,19 @@ const Home = ({ setShowModal }) => {
               !localStorage.getItem("admin_token") && (
                 <Link
                   className="btn btn-primary"
-                  onClick={() => setShowModal(true)}
+                  onClick={() => setshowGetst(true)}
                 >
                   Get Started
                 </Link>
               )}
             {localStorage.getItem("token") && (
               <Link to="/Addnote" className="btn btn-primary">
-                Get Started
+                Add Note
               </Link>
             )}
             {localStorage.getItem("admin_token") && (
               <Link to="/Dashboard" className="btn btn-primary">
-                Get Started
+                Dashboard
               </Link>
             )}
           </>

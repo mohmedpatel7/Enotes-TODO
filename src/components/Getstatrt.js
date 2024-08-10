@@ -1,28 +1,45 @@
 import React from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import { ModalTitle } from "react-bootstrap";
 
-export default function Getstatrt() {
+export default function Getstatrt({
+  showGetst,
+  setshowGetst,
+  setShowSignupModal,
+  setShowModal,
+}) {
+  const handleClose = () => setshowGetst(false);
   return (
     <div>
-      <Modal show={showModal} onHide={handleClose}>
+      <Modal show={showGetst} onHide={handleClose}>
         <Modal.Header className="custom-modal-header" closeButton>
-          <Modal.Title>Login</Modal.Title>
+          <ModalTitle>Get Start</ModalTitle>
         </Modal.Header>
         <Modal.Body>
           <div className="container">
             <div className="row">
               <Button
-                variant="secondary"
-                onClick={handleClose}
+                variant="primary"
+                onClick={() => {
+                  setShowSignupModal(true);
+                  setshowGetst(false);
+                }}
+                type="button"
                 className="modal-btn"
               >
-                Cancel
+                SignUp
               </Button>
             </div>
+            <br />
             <div className="row">
               <Button
                 variant="primary"
-                type="submit"
-                form="loginForm"
+                onClick={() => {
+                  setShowModal(true);
+                  setshowGetst(false);
+                }}
+                type="button"
                 className="modal-btn"
               >
                 Login
@@ -30,7 +47,15 @@ export default function Getstatrt() {
             </div>
           </div>
         </Modal.Body>
-        <Modal.Footer></Modal.Footer>
+        <Modal.Footer>
+          <Button
+            variant="secondary"
+            onClick={handleClose}
+            className="modal-btn"
+          >
+            Cancel
+          </Button>
+        </Modal.Footer>
       </Modal>
     </div>
   );
