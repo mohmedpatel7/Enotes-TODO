@@ -15,7 +15,7 @@ export default function Navbar({
   const isAdminLogin = !!localStorage.getItem("admin_token"); // Admin login status
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-custom fixed-top"> 
+    <nav className="navbar navbar-expand-lg navbar-custom"> 
       <div className="container-fluid">
         <p className="navbar-brand">eNotes</p>
         <button
