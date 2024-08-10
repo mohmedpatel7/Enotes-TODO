@@ -33,7 +33,7 @@ export default function Addnote({ showAlert, setShowModal }) {
 
   return (
     <div className="conatiner ">
-      <div className="row" style={{ paddingTop: "75px" }}>
+      <div className="row" style={{ paddingTop: "85px" }}>
         <h2 className="animated-text">Add Notes...</h2>
       </div>
 

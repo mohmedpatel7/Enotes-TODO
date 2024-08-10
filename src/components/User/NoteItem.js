@@ -10,7 +10,7 @@ export default function NoteItem(props) {
   const { del_note } = notes;
 
   return (
-    <div className="col-md-6">
+    <div className="col-md-6" style={{ paddingTop: "85px" }}>
       <div className="card mb-4">
         <div className="card-header">{note.title}</div>
         <div className="card-body">
