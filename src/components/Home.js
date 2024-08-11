@@ -103,7 +103,7 @@ const Home = ({ setshowGetst }) => {
                 onClick={() => navigate("/YourNotes")}
               ></i>
               <h3>Delete Notes</h3>
-              <p>Update your notes anytime to keep your information current.</p>
+              <p>Remove notes that are no longer needed with a single click.</p>
             </div>
           )}
           {!isUser && !isAdmin && (
@@ -119,11 +119,11 @@ const Home = ({ setshowGetst }) => {
           {isUser && !isAdmin && (
             <div className="feature">
               <i
-                className="fa-solid fa-database feature-icon"
+                className="fa-solid fa-note-sticky feature-icon"
                 onClick={() => navigate("/YourNotes")}
               ></i>
               <h3>View Notes</h3>
-              <p>Update your notes anytime to keep your information current.</p>
+              <p>Cheakout your notes.</p>
             </div>
           )}
         </section>
