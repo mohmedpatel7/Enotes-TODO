@@ -1,8 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./style/style.css";
 
 const Home = ({ setshowGetst }) => {
+  const isUser = localStorage.getItem("token");
+  const isAdmin = localStorage.getItem("admin_token");
+  const navigate = useNavigate();
   return (
     <div>
       <div className="home-container " style={{ paddingTop: "82px" }}>
@@ -33,26 +36,96 @@ const Home = ({ setshowGetst }) => {
         </header>
 
         <section className="features">
-          <div className="feature">
-            <i className="fa-solid fa-plus-circle feature-icon"></i>
-            <h3>Add Notes</h3>
-            <p>Easily add new notes to keep track of your tasks and ideas.</p>
-          </div>
-          <div className="feature">
-            <i className="fa-solid fa-edit feature-icon"></i>
-            <h3>Update Notes</h3>
-            <p>Update your notes anytime to keep your information current.</p>
-          </div>
-          <div className="feature">
-            <i className="fa-solid fa-trash feature-icon"></i>
-            <h3>Delete Notes</h3>
-            <p>Remove notes that are no longer needed with a single click.</p>
-          </div>
-          <div className="feature">
-            <i className="fa-solid fa-database feature-icon"></i>
-            <h3>Store Notes</h3>
-            <p>Your notes are securely stored and easily accessible.</p>
-          </div>
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-plus-circle feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Add Notes</h3>
+              <p>Easily add new notes to keep track of your tasks and ideas.</p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-plus-circle feature-icon"
+                onClick={() => navigate("/Addnote")}
+              ></i>
+              <h3>Add Notes</h3>
+              <p>Easily add new notes to keep track of your tasks and ideas.</p>
+            </div>
+          )}
+          {!isUser && isAdmin && (
+            <div className="feature">
+              <i
+                class="fa-solid fa-table-columns feature-icon"
+                onClick={() => navigate("/Dashboard")}
+              ></i>
+              <h3>Dashboard</h3>
+              <p>Cheak Dashboard</p>
+            </div>
+          )}
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-edit feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Update Notes</h3>
+              <p>Update your notes anytime to keep your information current.</p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-edit feature-icon"
+                onClick={() => navigate("/YourNotes")}
+              ></i>
+              <h3>Update Notes</h3>
+              <p>Update your notes anytime to keep your information current.</p>
+            </div>
+          )}
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-trash feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Delete Notes</h3>
+              <p>Remove notes that are no longer needed with a single click.</p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-trash feature-icon"
+                onClick={() => navigate("/YourNotes")}
+              ></i>
+              <h3>Delete Notes</h3>
+              <p>Update your notes anytime to keep your information current.</p>
+            </div>
+          )}
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-database feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Store Notes</h3>
+              <p>Your notes are securely stored and easily accessible.</p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-database feature-icon"
+                onClick={() => navigate("/YourNotes")}
+              ></i>
+              <h3>View Notes</h3>
+              <p>Update your notes anytime to keep your information current.</p>
+            </div>
+          )}
         </section>
       </div>
     </div>

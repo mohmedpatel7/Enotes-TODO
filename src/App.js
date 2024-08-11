@@ -54,7 +54,13 @@ function App() {
               <Route
                 exact
                 path="/"
-                element={<Home setshowGetst={setshowGetst} />}
+                element={
+                  <Home
+                    setshowGetst={setshowGetst}
+                    setShowModal={setShowModal}
+                    setShowSignupModal={setShowSignupModal}
+                  />
+                }
               />
               <Route
                 exact
