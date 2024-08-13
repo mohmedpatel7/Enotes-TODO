@@ -1,17 +1,75 @@
-import React from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./style/style.css";
 
-const Home = ({ setshowGetst }) => {
+const Home = ({ setshowGetst, showAlert }) => {
   const isUser = localStorage.getItem("token");
   const isAdmin = localStorage.getItem("admin_token");
   const navigate = useNavigate();
+
+  const [user, setUser] = useState({ name: "" });
+  const fetchUserData = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `https://enotes-backend-3k2a.onrender.com/api/auth/getuser`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
+
+      const data = await response.json();
+      setUser({ name: data.name });
+    } catch (error) {
+      showAlert("Failed to fetch user data", "danger");
+    }
+  }, [showAlert]);
+
+  const [admin, setAdmin] = useState({ Aid: "" });
+
+  const fetchAdminData = useCallback(async () => {
+    try {
+      const response = await fetch(
+        `https://enotes-backend-3k2a.onrender.com/api/admin/getadmin`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "admin-token": localStorage.getItem("admin_token"),
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch admin data");
+      }
+
+      const data = await response.json();
+      setAdmin({ Aid: data.Aid });
+    } catch (error) {
+      showAlert("Failed to fetch admin data", "danger");
+    }
+  }, [showAlert]);
+
+  useEffect(() => {
+    fetchUserData();
+    fetchAdminData();
+  }, [fetchUserData, fetchAdminData]);
+
   return (
     <div>
       <div className="home-container " style={{ paddingTop: "82px" }}>
         <header className="hero">
           <h1 className="hero-title">Welcome to ENOTES</h1>
           <p className="hero-subtitle">Your personal note management app</p>
+          <br />
           <>
             {!localStorage.getItem("token") &&
               !localStorage.getItem("admin_token") && (
@@ -23,14 +81,10 @@ const Home = ({ setshowGetst }) => {
                 </Link>
               )}
             {localStorage.getItem("token") && (
-              <Link to="/Addnote" className="btn btn-primary">
-                Add Note
-              </Link>
+              <h1 style={{ textTransform: "uppercase" }}>HELLO,{user.name}</h1>
             )}
             {localStorage.getItem("admin_token") && (
-              <Link to="/Dashboard" className="btn btn-primary">
-                Dashboard
-              </Link>
+              <h1 style={{ textTransform: "uppercase" }}>HELLO,{admin.Aid}</h1>
             )}
           </>
         </header>

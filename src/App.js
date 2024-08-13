@@ -59,6 +59,7 @@ function App() {
                     setshowGetst={setshowGetst}
                     setShowModal={setShowModal}
                     setShowSignupModal={setShowSignupModal}
+                    showAlert={showAlert}
                   />
                 }
               />
