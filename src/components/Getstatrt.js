@@ -45,6 +45,7 @@ export default function Getstatrt({
                 Login
               </Button>
             </div>
+            <span>*Login if you already have an account.</span>
           </div>
         </Modal.Body>
         <Modal.Footer>
