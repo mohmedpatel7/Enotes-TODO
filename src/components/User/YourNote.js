@@ -150,7 +150,6 @@ export default function YourNote({
               updateNote={updateNote}
               note={note}
               showAlert={showAlert}
-              showUpdtModel={showUpdtModel}
               setshowUpdtModel={setshowUpdtModel}
             />
           ))}
