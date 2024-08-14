@@ -8,7 +8,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 
-export default function YourNote({ showAlert }) {
+export default function YourNote({
+  showAlert,
+  showUpdtModel,
+  setshowUpdtModel,
+}) {
   // Access note data and fetch notes function from NoteContext
   const notes = useContext(NoteContext);
   const { note, get_note, updt_note } = notes;
@@ -24,7 +28,7 @@ export default function YourNote({ showAlert }) {
   }, [navigate, get_note]);
 
   // State variable to control modal visibility
-  const [showModal, setShowModal] = useState(false);
+  // const [showUpdtModel, setshowUpdtModel] = useState(false);
 
   // State variable to store the edited note data
   const [noteData, setNote] = useState({
@@ -35,7 +39,7 @@ export default function YourNote({ showAlert }) {
   });
 
   // Function to close the modal
-  const handleClose = () => setShowModal(false);
+  const handleClose = () => setshowUpdtModel(false);
 
   //handle save
   const handleSave = () => {
@@ -46,7 +50,7 @@ export default function YourNote({ showAlert }) {
       noteData.edit_tag
     );
     showAlert("Updated.", "success");
-    setShowModal(false);
+    setshowUpdtModel(false);
   };
 
   // Function to handle input changes and update state
@@ -58,7 +62,7 @@ export default function YourNote({ showAlert }) {
 
   // Function to open the modal and pre-populate the form with the selected note details
   const updateNote = (currentNote) => {
-    setShowModal(true);
+    setshowUpdtModel(true);
     setNote({
       id: currentNote._id,
       edit_title: currentNote.title,
@@ -72,13 +76,13 @@ export default function YourNote({ showAlert }) {
       <button
         type="button"
         className="btn btn-primary d-none my-5"
-        onClick={() => setShowModal(true)}
+        onClick={() => setshowUpdtModel(true)}
       >
         Launch demo modal
       </button>
 
       {/* Edit Note Modal */}
-      <Modal show={showModal} onHide={handleClose}>
+      <Modal show={showUpdtModel} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit Note</Modal.Title>
         </Modal.Header>
@@ -146,6 +150,8 @@ export default function YourNote({ showAlert }) {
               updateNote={updateNote}
               note={note}
               showAlert={showAlert}
+              showUpdtModel={showUpdtModel}
+              setshowUpdtModel={setshowUpdtModel}
             />
           ))}
         </div>

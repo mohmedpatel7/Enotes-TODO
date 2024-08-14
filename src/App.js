@@ -24,6 +24,7 @@ function App() {
   const [showAdminProfile, setshowAdminProfile] = useState(false);
   const [alert, setAlert] = useState(null); //alert
   const [showGetst, setshowGetst] = useState(false);
+  const [showUpdtModel, setshowUpdtModel] = useState(false);
 
   const showAlert = (message, type) => {
     setAlert({
@@ -74,7 +75,12 @@ function App() {
                 exact
                 path="/Yournotes"
                 element={
-                  <YourNote showAlert={showAlert} setShowModal={setShowModal} />
+                  <YourNote
+                    showAlert={showAlert}
+                    setShowModal={setShowModal}
+                    showUpdtModel={showUpdtModel}
+                    setshowUpdtModel={setshowUpdtModel}
+                  />
                 }
               />
               <Route exact path="/about" element={<About />} />
