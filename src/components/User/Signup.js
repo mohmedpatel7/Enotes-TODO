@@ -10,6 +10,7 @@ export default function Signup({
   showSignupModal,
   setShowSignupModal,
   showAlert,
+  setProgress,
 }) {
   const navigate = useNavigate(); // Hook to programmatically navigate
 
@@ -76,11 +77,16 @@ export default function Signup({
       // Parse the response data
       const data = await response.json();
       if (data && data.Authentication_token) {
-        // Successful signup
+        setProgress(10);
+        setProgress(30);
         setShowSignupModal(false);
-        localStorage.setItem("token", data.Authentication_token); // Save the token in local storage
+        setProgress(50);
+        localStorage.setItem("token", data.Authentication_token);
+        setProgress(70); // Save the token in local storage
         showAlert("SignUp successful!", "success");
+        setProgress(90);
         navigate("/"); // Redirect to home page
+        setProgress(100);
       } else {
         // Unexpected response format
         showAlert("Invalid data..!", "danger");

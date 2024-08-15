@@ -15,6 +15,7 @@ import Adminlogin from "./components/Admin/Adminlogin";
 import Adminprofile from "./components/Admin/Adminprofile";
 import Dashboard from "./components/Admin/Dashboard";
 import Getstatrt from "./components/Getstatrt";
+import LoadingBar from "react-top-loading-bar";
 
 function App() {
   const [showModal, setShowModal] = useState(false); //login
@@ -25,6 +26,7 @@ function App() {
   const [alert, setAlert] = useState(null); //alert
   const [showGetst, setshowGetst] = useState(false);
   const [showUpdtModel, setshowUpdtModel] = useState(false);
+  const [progress, setProgress] = useState(0); //Top loading bar..
 
   const showAlert = (message, type) => {
     setAlert({
@@ -40,6 +42,7 @@ function App() {
     <>
       <NoteState>
         <Router>
+          <LoadingBar color="red" progress={progress} />
           <Navbar
             setShowModal={setShowModal}
             setShowSignupModal={setShowSignupModal}
@@ -48,7 +51,6 @@ function App() {
             setadminShowModal={setadminShowModal}
             setshowAdminProfile={setshowAdminProfile}
           />
-          {/* Pass setShowModal to Navbar */}
           <Alert alert={alert} />
           <div className="container">
             <Routes>
@@ -68,7 +70,11 @@ function App() {
                 exact
                 path="/Addnote"
                 element={
-                  <Addnote showAlert={showAlert} setShowModal={setShowModal} />
+                  <Addnote
+                    showAlert={showAlert}
+                    setShowModal={setShowModal}
+                    setProgress={setProgress}
+                  />
                 }
               />
               <Route
@@ -80,6 +86,7 @@ function App() {
                     setShowModal={setShowModal}
                     showUpdtModel={showUpdtModel}
                     setshowUpdtModel={setshowUpdtModel}
+                    setProgress={setProgress}
                   />
                 }
               />
@@ -87,7 +94,9 @@ function App() {
               <Route
                 exact
                 path="/dashboard"
-                element={<Dashboard showAlert={showAlert} />}
+                element={
+                  <Dashboard showAlert={showAlert} />
+                }
               />
             </Routes>
           </div>
@@ -95,26 +104,31 @@ function App() {
             showModal={showModal}
             setShowModal={setShowModal}
             showAlert={showAlert}
+            setProgress={setProgress}
           />
           <Signup
             showSignupModal={showSignupModal}
             setShowSignupModal={setShowSignupModal}
             showAlert={showAlert}
+            setProgress={setProgress}
           />
           <Profile
             showProfile={showProfile}
             setshowProfile={setshowProfile}
             showAlert={showAlert}
+            setProgress={setProgress}
           />
           <Adminlogin
             showadminModal={showadminModal}
             setadminShowModal={setadminShowModal}
             showAlert={showAlert}
+            setProgress={setProgress}
           />
           <Adminprofile
             showAdminProfile={showAdminProfile}
             setshowAdminProfile={setshowAdminProfile}
             showAlert={showAlert}
+            setProgress={setProgress}
           />
           <Getstatrt
             showGetst={showGetst}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style/style.css";
-export default function Dashboard({ showAlert }) {
+export default function Dashboard({ showAlert, setProgress }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -58,7 +58,15 @@ export default function Dashboard({ showAlert }) {
   return (
     <>
       <div className="container" style={{ paddingTop: "75px" }}>
-        <h1>Users</h1>
+        <div className="row">
+          <div className="col-md-1">
+            <h1>Users</h1>
+          </div>
+          <div className="col-md-9"></div>
+          <div className="col-md-2">
+            <h5>Total Users:{users.length}</h5>
+          </div>
+        </div>
         <br />
         <p className="animated-text">User information!</p>
         <div className="table-responsive">
@@ -96,7 +104,6 @@ export default function Dashboard({ showAlert }) {
           </table>
         </div>
         <br />
-        <h5>Total Users:{users.length}</h5>
       </div>
     </>
   );

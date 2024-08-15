@@ -4,15 +4,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../style/style.css";
 
 export default function NoteItem(props) {
-  const { note, updateNote, showAlert } = props;
+  const { note, updateNote, showAlert, setProgress } = props;
 
   const notes = useContext(NoteContext);
   const { del_note } = notes;
 
   const handleDelete = (event) => {
+    setProgress(10);
+    setProgress(30);
     event.stopPropagation(); // Prevent event from bubbling up to the card
+    setProgress(50);
     del_note(note._id);
+    setProgress(90);
     showAlert("deleted.", "success");
+    setProgress(100);
   };
 
   const handleUpdate = (event) => {

@@ -7,6 +7,7 @@ export default function Profile({
   showAdminProfile,
   setshowAdminProfile,
   showAlert,
+  setProgress,
 }) {
   const [admin, setAdmin] = useState({ Aid: "", email: "", date: "" });
 
@@ -44,10 +45,15 @@ export default function Profile({
   const logout = () => {
     const confirm = window.confirm("Are you sure you want to logout..?");
     if (confirm) {
+      setProgress(10);
+      setProgress(30);
       localStorage.removeItem("admin_token");
+      setProgress(60);
       setshowAdminProfile(false);
       navigate("/");
+      setProgress(90);
       showAlert("Logout successful...", "success");
+      setProgress(100);
     }
   };
 

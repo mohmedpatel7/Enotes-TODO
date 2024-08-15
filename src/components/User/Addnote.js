@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import NoteContext from "../../context/notes_context/NoteContext"; // Import NoteContext
 import "../style/style.css";
 
-export default function Addnote({ showAlert, setShowModal }) {
+export default function Addnote({ showAlert, setShowModal, setProgress }) {
   // Use useContext hook to access the NoteContext
   const notes = useContext(NoteContext);
   const { add_note } = notes;
@@ -19,10 +19,15 @@ export default function Addnote({ showAlert, setShowModal }) {
   };
 
   const handleClick = (event) => {
+    setProgress(10);
+    setProgress(30);
     event.preventDefault(); // used cause page not load..
     add_note(noteData.title, noteData.description, noteData.tag); // function call to add notes..
+    setProgress(50);
     setNote({ title: "", description: "", tag: "" }); // for clearing fields after submit...
+    setProgress(90);
     showAlert("Saved.", "success");
+    setProgress(100);
   };
 
   const handleReset = () => {
