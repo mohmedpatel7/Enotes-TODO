@@ -9,6 +9,17 @@ export default function NoteItem(props) {
   const notes = useContext(NoteContext);
   const { del_note } = notes;
 
+  const handleDelete = (event) => {
+    event.stopPropagation(); // Prevent event from bubbling up to the card
+    del_note(note._id);
+    showAlert("deleted.", "success");
+  };
+
+  const handleUpdate = (event) => {
+    event.stopPropagation(); // Prevent event from bubbling up to the card
+    updateNote(note);
+  };
+
   const handleClick = () => {
     updateNote(note);
   };
@@ -20,18 +31,10 @@ export default function NoteItem(props) {
         <div className="card-body">
           <h5 className="card-title">{note.tag}</h5>
           <p className="card-text">{note.description}</p>
-          <i
-            className="fa-solid fa-trash-can mx-2"
-            onClick={() => {
-              del_note(note._id);
-              showAlert("deleted.", "success");
-            }}
-          ></i>
+          <i className="fa-solid fa-trash-can mx-2" onClick={handleDelete}></i>
           <i
             className="fa-solid fa-pen-to-square mx-2"
-            onClick={() => {
-              updateNote(note);
-            }}
+            onClick={handleUpdate}
           ></i>
         </div>
       </div>
