@@ -3,12 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
-export default function Profile({
-  showProfile,
-  setshowProfile,
-  showAlert,
-  setProgress,
-}) {
+export default function Profile({ showProfile, setshowProfile, showAlert }) {
   const [user, setUser] = useState({ name: "", email: "", date: "" });
 
   const fetchUserData = useCallback(async () => {
@@ -48,15 +43,10 @@ export default function Profile({
 
     // If the user confirms, proceed with logout
     if (confirmLogout) {
-      setProgress(10);
-      setProgress(30);
       localStorage.removeItem("token");
-      setProgress(50);
       setshowProfile(false);
       navigate("/");
-      setProgress(90);
       showAlert("Logout successful...", "success");
-      setProgress(100);
     } else {
       // If the user cancels, do nothing
       showAlert("Logout cancelled.", "info");

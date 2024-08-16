@@ -7,12 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import "../style/style.css";
 
-export default function Login({
-  showModal,
-  setShowModal,
-  showAlert,
-  setProgress,
-}) {
+export default function Login({ showModal, setShowModal, showAlert }) {
   const navigate = useNavigate(); // Hook to programmatically navigate
 
   // State to manage login form input values
@@ -51,19 +46,13 @@ export default function Login({
       const data = await response.json();
 
       if (data.Authentication_token) {
-        setProgress(0);
-        setProgress(20);
-        setShowModal(false);
-        setProgress(30);
         // Save the auth-token and redirect...
         localStorage.setItem("token", data.Authentication_token);
-        setProgress(50); // Saving token in local storage...
+        // Saving token in local storage...
         showAlert("Login successfully...", "success");
-        setProgress(70);
-        navigate("/"); // If user is logged in, redirect to home page
-        setProgress(90);
+        navigate("/"); // If user is logged in, redirect to home
         setLogin({ email: "", password: "" });
-        setProgress(100);
+        setShowModal(false);
       } else {
         // Handle unexpected successful response cases
         setShowModal(false);

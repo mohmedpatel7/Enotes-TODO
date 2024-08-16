@@ -9,6 +9,15 @@ const Footer = () => {
         <ul className="social-links">
           <li>
             <a
+              href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJfsdbmDfVQZTvRxhSsdTLCZFPqvbzVQbRZvhJjlmSrTDZvvGXWZTSHzzNglJMcLczlBFGV"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-regular fa-envelope"></i>
+            </a>
+          </li>
+          <li>
+            <a
               href="https://x.com/MOHMED_PATEL_7"
               target="_blank"
               rel="noopener noreferrer"

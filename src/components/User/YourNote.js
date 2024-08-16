@@ -12,7 +12,6 @@ export default function YourNote({
   showAlert,
   showUpdtModel,
   setshowUpdtModel,
-  setProgress,
 }) {
   // Access note data and fetch notes function from NoteContext
   const notes = useContext(NoteContext);
@@ -44,19 +43,14 @@ export default function YourNote({
 
   //handle save
   const handleSave = () => {
-    setProgress(10);
-    setProgress(30);
     updt_note(
       noteData.id,
       noteData.edit_title,
       noteData.edit_description,
       noteData.edit_tag
     );
-    setProgress(60);
     showAlert("Updated.", "success");
-    setProgress(90);
     setshowUpdtModel(false);
-    setProgress(100);
   };
 
   // Function to handle input changes and update state
@@ -157,7 +151,6 @@ export default function YourNote({
               note={note}
               showAlert={showAlert}
               setshowUpdtModel={setshowUpdtModel}
-              setProgress={setProgress}
             />
           ))}
         </div>

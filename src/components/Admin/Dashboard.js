@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../style/style.css";
-export default function Dashboard({ showAlert, setProgress }) {
+export default function Dashboard({ showAlert }) {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {

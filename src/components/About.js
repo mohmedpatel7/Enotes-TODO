@@ -1,5 +1,6 @@
 import React from "react";
 import "./style/style.css";
+import profile from "./profile.jpg";
 
 const About = () => {
   return (
@@ -24,7 +25,7 @@ const About = () => {
 
       <section className="team">
         <div className="team-member">
-          <img src="https://via.placeholder.com/100" alt="Team Member 2" />
+          <img src={profile} alt="Team Member 2" />
           <h3>MOHMED PATEL</h3>
           <p>Lead Developer</p>
         </div>

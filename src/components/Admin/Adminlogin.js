@@ -11,7 +11,6 @@ export default function Login({
   showadminModal,
   setadminShowModal,
   showAlert,
-  setProgress,
 }) {
   const navigate = useNavigate(); // Hook to programmatically navigate
 
@@ -52,18 +51,13 @@ export default function Login({
       const data = await response.json();
 
       if (data.admin_token) {
-        setProgress(10);
-        setProgress(30);
         setadminShowModal(false);
-        setProgress(50);
         // Save the admin_token and redirect...
         localStorage.setItem("admin_token", data.admin_token);
-        setProgress(70); // Saving token in local storage...
+        // Saving token in local storage...
         showAlert("Login successfully...", "success");
         navigate("/"); // If user is logged in, redirect to home page
-        setProgress(90);
         setLogin({ Aid: "", email: "", password: "" });
-        setProgress(100);
       } else {
         // Handle unexpected successful response cases
         setadminShowModal(false);
