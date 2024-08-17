@@ -49,6 +49,7 @@ export default function Addnote({ showAlert, setShowModal }) {
             value={noteData.title}
             aria-describedby="title"
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-3">
@@ -60,21 +61,12 @@ export default function Addnote({ showAlert, setShowModal }) {
             name="tag"
             value={noteData.tag}
             onChange={handleChange}
-            // Add this line for accessibility
             aria-describedby="tag"
+            required
           />
         </div>
         <div className="mb-3">
           <label className="form-label">Description</label>
-          {/* <input
-          type="textarea"
-          className="form-control-description"
-          id="description"
-          name="description"
-          onChange={handleChange}
-          // Add this line for accessibility
-          aria-describedby="description"
-        /> */}
           <textarea
             type="textarea"
             className="form-control-description"
@@ -84,6 +76,7 @@ export default function Addnote({ showAlert, setShowModal }) {
             onChange={handleChange}
             // Add this line for accessibility
             aria-describedby="description"
+            required
           ></textarea>
         </div>
 
