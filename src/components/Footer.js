@@ -13,7 +13,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i class="fa-regular fa-envelope"></i>
+              <i className="fa-regular fa-envelope"></i>
             </a>
           </li>
           <li>

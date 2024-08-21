@@ -105,6 +105,7 @@ export default function Addnote({ showAlert, setShowModal }) {
               <button
                 className="btn-3d w-100 mb-2 mb-md-0"
                 onClick={handleClick}
+                disabled={(noteData.title && noteData.description).length === 0}
               >
                 <span>Save</span>
               </button>
