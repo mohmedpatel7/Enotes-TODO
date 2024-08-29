@@ -71,7 +71,7 @@ export default function Profile({ showProfile, setshowProfile, showAlert }) {
           <strong>Email:</strong> {user.email}
         </p>
         <p>
-          <strong>Join:</strong> {user.date}
+          <strong>Join:</strong> {new Date(user.date).toLocaleDateString()}
         </p>
       </Modal.Body>
       <Modal.Footer>
