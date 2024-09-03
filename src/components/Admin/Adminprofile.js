@@ -67,6 +67,9 @@ export default function Profile({
         <p>
           <strong>Email:</strong> {admin.email}
         </p>
+        <p>
+          <strong>Date:</strong> {new Date(admin.date).toLocaleDateString()}
+        </p>
       </Modal.Body>
       <Modal.Footer>
         <Button
