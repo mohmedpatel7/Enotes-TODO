@@ -1,5 +1,10 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useSearchParams,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Addnote from "./components/User/Addnote";
@@ -11,11 +16,11 @@ import Login from "./components/User/Login";
 import Signup from "./components/User/Signup";
 import Footer from "./components/Footer";
 import Profile from "./components/User/Profile";
-import Adminlogin from "./components/Admin/Adminlogin";
 import Adminprofile from "./components/Admin/Adminprofile";
 import Dashboard from "./components/Admin/Dashboard";
 import Getstatrt from "./components/Getstatrt";
 import LoadingBar from "react-top-loading-bar";
+import AdminLoginWrapper from "./components/Admin/AdminLoginWrapper";
 
 function App() {
   const [showModal, setShowModal] = useState(false); //login
@@ -94,8 +99,18 @@ function App() {
               <Route
                 exact
                 path="/dashboard"
+                element={<Dashboard showAlert={showAlert} />}
+              />
+              <Route
+                exact
+                path="/adminLogin"
                 element={
-                  <Dashboard showAlert={showAlert} />
+                  <AdminLoginWrapper
+                    setadminShowModal={setadminShowModal}
+                    showadminModal={showadminModal}
+                    showAlert={showAlert}
+                    setProgress={setProgress}
+                  />
                 }
               />
             </Routes>
@@ -115,12 +130,6 @@ function App() {
           <Profile
             showProfile={showProfile}
             setshowProfile={setshowProfile}
-            showAlert={showAlert}
-            setProgress={setProgress}
-          />
-          <Adminlogin
-            showadminModal={showadminModal}
-            setadminShowModal={setadminShowModal}
             showAlert={showAlert}
             setProgress={setProgress}
           />

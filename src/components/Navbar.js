@@ -72,13 +72,13 @@ export default function Navbar({
             {/* Display buttons based on login status */}
             {!isLoggedIn && !isAdminLogin && (
               <>
-                <button
+                {/* <button
                   className="btn-profile me-2"
                   onClick={() => setadminShowModal(true)}
                   title="admin"
                 >
                   <i className="fa-solid fa-user-tie"></i>
-                </button>
+                </button> */}
                 <button
                   className="btn btn-login me-2"
                   onClick={() => setShowModal(true)}
