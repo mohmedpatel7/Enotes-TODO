@@ -30,7 +30,7 @@ export default function NoteItem(props) {
         <div className="card-header">{note.title}</div>
         <div className="card-body">
           <h5 className="card-title">{note.tag}</h5>
-          <p className="card-text">{note.description}</p>
+          <p className="card-text" style={{"whiteSpace":"pre-line"}}>{note.description}</p>
           <i className="fa-solid fa-trash-can mx-2" onClick={handleDelete}></i>
           <i
             className="fa-solid fa-pen-to-square mx-2"

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../style/style.css";
 export default function Dashboard({ showAlert }) {
   const [users, setUsers] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchUserdata = async () => {
@@ -28,6 +29,31 @@ export default function Dashboard({ showAlert }) {
       }
     };
     fetchUserdata();
+
+    const fetchNotesData = async () => {
+      try {
+        const response = await fetch(
+          `https://enotes-backend-3k2a.onrender.com/api/notes/getNoteDetails`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "admin-token": localStorage.getItem("admin_token"),
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        showAlert("Failed to fetch user data", "danger");
+      }
+    };
+    fetchNotesData();
   }, [showAlert]);
 
   const deleteUser = async (user_id) => {
@@ -68,7 +94,6 @@ export default function Dashboard({ showAlert }) {
           </div>
         </div>
         <br />
-        <p className="animated-text">User information!</p>
         <div className="table-responsive">
           <table className="table table-striped ">
             <thead>
@@ -104,6 +129,29 @@ export default function Dashboard({ showAlert }) {
           </table>
         </div>
         <br />
+        <div className="table-responsive">
+          <h1>Latest Addons</h1>
+          <table className="table table-striped ">
+            <thead>
+              <tr>
+                <th>Sr.no</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Addons</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((note, index) => (
+                <tr key={note._id}>
+                  <td>{index + 1}</td>
+                  <td>{note.user.name}</td>
+                  <td>{note.user.email}</td>
+                  <td>{new Date(note.date).toLocaleDateString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
