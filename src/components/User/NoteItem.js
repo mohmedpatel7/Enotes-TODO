@@ -37,9 +37,14 @@ export default function NoteItem(props) {
         <div className="card-body">
           <h5 className="card-title">{note.tag}</h5>
           <p className="card-text" style={{ whiteSpace: "pre-line" }}>
-            {showFullDescription ? note.description : note.description.substring(0, 100)}
+            {showFullDescription
+              ? note.description
+              : note.description.substring(0, 100)}
             {note.description.length > 100 && (
-              <span onClick={handleReadMoreClick}>
+              <span
+                onClick={handleReadMoreClick}
+                style={{ color: "#4BA4A6", fontWeight: "bolder" }}
+              >
                 {showFullDescription ? "Read Less" : "Read More"}
               </span>
             )}
