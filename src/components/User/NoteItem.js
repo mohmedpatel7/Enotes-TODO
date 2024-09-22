@@ -22,9 +22,9 @@ export default function NoteItem(props) {
     updateNote(note);
   };
 
-  const handleClick = () => {
-    updateNote(note);
-  };
+  // const handleClick = () => {
+  //   updateNote(note);
+  // };
 
   const handleReadMoreClick = () => {
     setShowFullDescription(!showFullDescription);
@@ -32,7 +32,7 @@ export default function NoteItem(props) {
 
   return (
     <div className="col-md-6">
-      <div className="card mb-4" onClick={handleClick}>
+      <div className="card mb-4">
         <div className="card-header">{note.title}</div>
         <div className="card-body">
           <h5 className="card-title">{note.tag}</h5>
