@@ -10,6 +10,7 @@ export default function NoteItem(props) {
   const { del_note } = notes;
 
   const [showFullDescription, setShowFullDescription] = useState(false);
+  const [shareLinks, setShareLinks] = useState(null); // State for share links
 
   const handleDelete = (event) => {
     event.stopPropagation(); // Prevent event from bubbling up to the card
@@ -22,12 +23,42 @@ export default function NoteItem(props) {
     updateNote(note);
   };
 
-  // const handleClick = () => {
-  //   updateNote(note);
-  // };
-
   const handleReadMoreClick = () => {
     setShowFullDescription(!showFullDescription);
+  };
+
+  // Share note API call..
+  const handleShare = async (noteid) => {
+    // Toggle shareLinks visibility
+    if (shareLinks) {
+      // If links are already visible, hide them
+      setShareLinks(null);
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `https://enotes-backend-3k2a.onrender.com/api/Notes/ShareNote/${noteid}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      const data = await response.json(); // Extract data from response
+      setShareLinks(data.shareLinks); // Set the share links in state
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const openShareLink = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -43,17 +74,48 @@ export default function NoteItem(props) {
             {note.description.length > 100 && (
               <span
                 onClick={handleReadMoreClick}
-                style={{ color: "#4BA4A6", fontWeight: "bolder" }}
+                style={{
+                  color: "#4BA4A6",
+                  fontWeight: "bolder",
+                  cursor: "pointer",
+                }}
               >
                 {showFullDescription ? "Read Less" : "Read More"}
               </span>
             )}
           </p>
-          <i className="fa-solid fa-trash-can mx-2" onClick={handleDelete}></i>
+          <i
+            className="fa-solid fa-trash-can mx-2"
+            onClick={handleDelete}
+            title="Delete"
+          ></i>
           <i
             className="fa-solid fa-pen-to-square mx-2"
             onClick={handleUpdate}
+            title="Update"
           ></i>
+          <i
+            className="fa-solid fa-share mx-2"
+            onClick={() => handleShare(note._id)}
+            style={{ fontSize: "18px", cursor: "pointer" }}
+            title="Share"
+          ></i>
+
+          {/* Conditionally render share links with icons */}
+          {shareLinks && (
+            <div className="share-links mt-2">
+              <i
+                className="fa-brands fa-facebook mx-2"
+                onClick={() => openShareLink(shareLinks.facebook)}
+                style={{ fontSize: "18px", cursor: "pointer" }}
+              ></i>
+              <i
+                className="fa-brands fa-whatsapp mx-2"
+                onClick={() => openShareLink(shareLinks.whatsapp)}
+                style={{ fontSize: "20px", cursor: "pointer" }}
+              ></i>
+            </div>
+          )}
         </div>
       </div>
     </div>
