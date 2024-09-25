@@ -71,7 +71,10 @@ const Home = ({ setshowGetst, showAlert }) => {
           <p className="hero-subtitle">Your personal note management app</p>
           <br />
           {!isUser && !isAdmin && (
-            <Link className="btn btn-primary" onClick={() => setshowGetst(true)}>
+            <Link
+              className="btn btn-primary"
+              onClick={() => setshowGetst(true)}
+            >
               Get Started
             </Link>
           )}
@@ -172,6 +175,26 @@ const Home = ({ setshowGetst, showAlert }) => {
               ></i>
               <h3>View Notes</h3>
               <p>Check out your notes.</p>
+            </div>
+          )}
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-share feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Share Notes</h3>
+              <p>Share your note to diffrent plateforms.</p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-share feature-icon"
+                onClick={() => navigate("/YourNotes")}
+              ></i>
+              <h3>Share Notes</h3>
+              <p>Share your note to diffrent plateforms.</p>
             </div>
           )}
         </section>
