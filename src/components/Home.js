@@ -184,7 +184,7 @@ const Home = ({ setshowGetst, showAlert }) => {
                 onClick={() => setshowGetst(true)}
               ></i>
               <h3>Share Notes</h3>
-              <p>Share your note to diffrent plateforms.</p>
+              <p>Share your notes on diffrent plateforms.</p>
             </div>
           )}
           {isUser && !isAdmin && (
@@ -194,7 +194,7 @@ const Home = ({ setshowGetst, showAlert }) => {
                 onClick={() => navigate("/YourNotes")}
               ></i>
               <h3>Share Notes</h3>
-              <p>Share your note to diffrent plateforms.</p>
+              <p>Share your notes on diffrent plateforms.</p>
             </div>
           )}
         </section>
