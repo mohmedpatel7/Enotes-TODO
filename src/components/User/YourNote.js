@@ -139,7 +139,7 @@ export default function YourNote({
 
       <div className="container" style={{ paddingTop: "100px" }}>
         <div className="row">
-          <h2 className="animated-text">Your Notes...</h2>
+          <h2>Your Notes...</h2>
           <div className="conatainer mx-3">
             {note.length === 0 && "No notes Avalable..."}
           </div>

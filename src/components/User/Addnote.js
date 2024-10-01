@@ -34,7 +34,7 @@ export default function Addnote({ showAlert, setShowModal }) {
   return (
     <div className="conatiner " style={{ paddingTop: "120px" }}>
       <div className="row">
-        <h2 className="animated-text">Add Notes...</h2>
+        <h2>Add Notes...</h2>
       </div>
 
       {/*Add notes form */}
