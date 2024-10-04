@@ -244,7 +244,9 @@ body {
   margin-bottom: 10px;
 }
 
-
+.card-footer {
+  font-size: 15px;
+}
 
 /* Button */
 .btn {

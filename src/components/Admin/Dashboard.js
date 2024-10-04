@@ -112,7 +112,7 @@ export default function Dashboard({ showAlert }) {
                   <td>{index + 1}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td>{new Date(user.date).toLocaleDateString()}</td>
+                  <td>{new Date(user.date).toDateString()}</td>
                   <td>{user.noteCount}</td>
                   <td>
                     <i
@@ -146,7 +146,7 @@ export default function Dashboard({ showAlert }) {
                   <td>{index + 1}</td>
                   <td>{note.user.name}</td>
                   <td>{note.user.email}</td>
-                  <td>{new Date(note.date).toLocaleDateString()}</td>
+                  <td>{new Date(note.date).toDateString()}</td>
                 </tr>
               ))}
             </tbody>

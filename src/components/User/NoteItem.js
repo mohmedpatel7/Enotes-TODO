@@ -117,6 +117,9 @@ export default function NoteItem(props) {
             </div>
           )}
         </div>
+        <div className="card-footer text-end">
+          {new Date(note.date).toDateString()}
+        </div>
       </div>
     </div>
   );
