@@ -58,6 +58,15 @@ export default function Navbar({
                 </li>
               </>
             )}
+            {isLoggedIn && (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/files">
+                    Files
+                  </Link>
+                </li>
+              </>
+            )}
             {isAdminLogin && (
               <>
                 <li className="nav-item">

@@ -141,7 +141,7 @@ export default function YourNote({
         <div className="row">
           <h2>Your Notes...</h2>
           <div className="conatainer mx-3">
-            {note.length === 0 && "No notes Avalable..."}
+            {note.length === 0 && "No Notes Avalable..."}
           </div>
           {/* Map through notes and render NoteItem components */}
           {note.map((note, index) => (

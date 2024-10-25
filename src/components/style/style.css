@@ -727,3 +727,20 @@ input[name="cpassword"] {
     transform: translateY(20px);
   }
 }
+
+.file-btn {
+  font-size: 15px;
+  font-weight: bolder;
+  width: 2in;
+}
+
+.file-btn:hover {
+  font-size: 15px;
+  font-weight: bolder;
+  width: 2in;
+}
+
+.file-row {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}

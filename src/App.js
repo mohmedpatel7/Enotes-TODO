@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useSearchParams,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -21,6 +20,7 @@ import Dashboard from "./components/Admin/Dashboard";
 import Getstatrt from "./components/Getstatrt";
 import LoadingBar from "react-top-loading-bar";
 import AdminLoginWrapper from "./components/Admin/AdminLoginWrapper";
+import Files from "./components/User/Files";
 
 function App() {
   const [showModal, setShowModal] = useState(false); //login
@@ -112,6 +112,11 @@ function App() {
                     setProgress={setProgress}
                   />
                 }
+              />
+              <Route
+                exact
+                path="/files"
+                element={<Files showAlert={showAlert} />}
               />
             </Routes>
           </div>
