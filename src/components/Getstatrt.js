@@ -42,10 +42,10 @@ export default function Getstatrt({
                 type="button"
                 className="modal-btn"
               >
-                Login
+                Sign In
               </Button>
             </div>
-            <span>*Login if you already have an account.</span>
+            <span>*Sign In if you already have an account.</span>
           </div>
         </Modal.Body>
         <Modal.Footer>

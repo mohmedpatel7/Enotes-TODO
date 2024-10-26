@@ -197,6 +197,72 @@ const Home = ({ setshowGetst, showAlert }) => {
               <p>Share your notes on diffrent plateforms.</p>
             </div>
           )}
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-file-arrow-up feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Upload Files</h3>
+              <p>Upload files to access from any where in any devices.</p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-file-arrow-up feature-icon"
+                onClick={() => navigate("files")}
+              ></i>
+              <h3>Upload Files</h3>
+              <p>Upload files to access from any where in any devices.</p>
+            </div>
+          )}
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-trash feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Delete Files</h3>
+              <p>
+                Delete uploaded files that are no longer needed with single
+                click.
+              </p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-trash feature-icon"
+                onClick={() => navigate("files")}
+              ></i>
+              <h3>Delete Files</h3>
+              <p>
+                Delete uploaded files that are no longer needed with single
+                click.
+              </p>
+            </div>
+          )}
+          {!isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-file-arrow-down feature-icon"
+                onClick={() => setshowGetst(true)}
+              ></i>
+              <h3>Download Files</h3>
+              <p>Download files to save in your local device.</p>
+            </div>
+          )}
+          {isUser && !isAdmin && (
+            <div className="feature">
+              <i
+                className="fa-solid fa-file-arrow-down feature-icon"
+                onClick={() => navigate("files")}
+              ></i>
+              <h3>Download Files</h3>
+              <p>Download files to save in your local device.</p>
+            </div>
+          )}
         </section>
       </div>
     </div>

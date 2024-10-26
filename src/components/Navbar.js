@@ -93,7 +93,7 @@ export default function Navbar({
                   onClick={() => setShowModal(true)}
                   id="btn-login"
                 >
-                  Login
+                  Sign In
                 </button>
                 <button
                   className="btn btn-signup me-2"

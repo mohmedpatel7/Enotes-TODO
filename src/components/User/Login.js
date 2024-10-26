@@ -81,7 +81,7 @@ export default function Login({ showModal, setShowModal, showAlert }) {
       <div>
         <Modal show={showModal} onHide={handleClose}>
           <Modal.Header className="custom-modal-header" closeButton>
-            <Modal.Title>Login</Modal.Title>
+            <Modal.Title>Sign In</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={handleSave} id="loginForm">
@@ -139,7 +139,7 @@ export default function Login({ showModal, setShowModal, showAlert }) {
               form="loginForm"
               className="modal-btn"
             >
-              Login
+              Sign In
             </Button>
           </Modal.Footer>
         </Modal>
